@@ -78,11 +78,20 @@ class DogObjectOriyent extends Animal {
 }
 
 
+
+function isDog(animal: Animal): animal is DogObjectOriyent{
+    return animal instanceof DogObjectOriyent
+}
+
+function isCat(animal: Animal): animal is CatObjectOriyent {
+    return animal instanceof CatObjectOriyent
+}
+
 function getAnimal(animal: Animal){
-  if(animal instanceof DogObjectOriyent){
+  if(isDog(animal)){
     animal.dogMakeSounds()
   }
-  else if (animal instanceof CatObjectOriyent){
+  else if (isCat(animal)){
     animal.MakeMeawSounds()
   }
   else{
