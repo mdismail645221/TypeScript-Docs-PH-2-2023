@@ -10,8 +10,8 @@ function add(param1: KeyGurarType, param2: KeyGurarType): KeyGurarType {
     }
 }
 
-console.log(add('1', '2'))
-console.log(add(1, 2))
+// console.log(add('1', '2'))
+// console.log(add(1, 2))
 
 
 //  
@@ -36,6 +36,64 @@ function RoleAdmin(user: NormarUserType | AdminUserType): string{
 const adminUser :AdminUserType = {name: 'ladsk', role: 'admin'};
 const normalUser : NormarUserType  = {name: 'LASDKFJ'};
 
-console.log(RoleAdmin(adminUser))
-console.log(RoleAdmin(normalUser))
+// console.log(RoleAdmin(adminUser))
+// console.log(RoleAdmin(normalUser))
+
+
+// instanceof  guard 
+
+class Animal {
+    name: string;
+    spesises: string;
+    sounds: string;
+    constructor(name: string, spesises: string, sounds: string){
+        this.name= name;
+        this.spesises= spesises;
+        this.sounds = sounds;
+    }
+    
+    makeSounds(){
+        console.log(`The ${this.spesises} is sound ${this.sounds}`)
+    }
+}
+
+
+class CatObjectOriyent extends Animal  {
+    constructor(name: string, sounds: string, spesises: string){
+        super(name,sounds, spesises)
+    }
+    MakeMeawSounds(){
+        console.log(`I'm peoepe luach sounds is Meaw Meaw`)
+    }
+}
+
+class DogObjectOriyent extends Animal {
+    constructor(name: string, sounds: string, spesises: string){
+        super(name, sounds, spesises)
+    }
+    
+    dogMakeSounds( ){
+        console.log(`this dos is sound Gew gew`)
+    }
+}
+
+
+function getAnimal(animal: Animal){
+  if(animal instanceof DogObjectOriyent){
+    animal.dogMakeSounds()
+  }
+  else if (animal instanceof CatObjectOriyent){
+    animal.MakeMeawSounds()
+  }
+  else{
+    animal.makeSounds()
+  }
+}
+ 
+const animal1 = new DogObjectOriyent("RAJU", 'RED DOG', "GEW GEW");
+const animal2 = new CatObjectOriyent('TASNIM', 'BLACK CAT', 'MEW MEW');
+
+
+console.log(getAnimal(animal1))
+
 
